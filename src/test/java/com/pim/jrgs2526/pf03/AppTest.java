@@ -8,14 +8,16 @@ import org.junit.jupiter.api.Test;
  * Unit test for simple App.
  */
 public class AppTest {
-    @Test
+    @ParameterizedTest
+    @ValueSource(int = { 5,6,7,8,9,10 })
     public void testCalcularAprobado() {
         App main = new App();
         int resultado = main.calcularNota(6);
         Assertions.assertEquals(1, resultado);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(int = { 0,1,2,3,4 })
     public void testCalcularSuspenso() {
         App main = new App();
         int resultado = main.calcularNota(2);
@@ -29,7 +31,7 @@ public class AppTest {
             int resultado = main.calcularNota(63);
         }
         catch (IllegalArgumentException e) {
-            Assertions.assertEquals("Error al calcular la nota", e.getMessage());
+            Assertions.assertEquals("Error al calcular nota", e.getMessage());
             return;
         }
         Assertions.fail();
