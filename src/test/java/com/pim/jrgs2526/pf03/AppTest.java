@@ -10,17 +10,17 @@ import org.junit.jupiter.api.Test;
 public class AppTest {
     @ParameterizedTest
     @ValueSource(int = { 5,6,7,8,9,10 })
-    public void testCalcularAprobado() {
+    public void testCalcularAprobado(int nota) {
         App main = new App();
-        int resultado = main.calcularNota(6);
+        int resultado = main.calcularNota(nota);
         Assertions.assertEquals(1, resultado);
     }
 
     @ParameterizedTest
     @ValueSource(int = { 0,1,2,3,4 })
-    public void testCalcularSuspenso() {
+    public void testCalcularSuspenso(int nota) {
         App main = new App();
-        int resultado = main.calcularNota(2);
+        int resultado = main.calcularNota(nota);
         Assertions.assertEquals(-1, resultado);
     }
 
